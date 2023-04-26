@@ -35,7 +35,19 @@
 
 function greeter(hour) {
     // YOUR CODE BELOW HERE //
-    
+    //write an if-else if for the numerical hour of the day that is between hours 0-11
+    if (hour <= 11){//print greeting
+        console.log("Good Morning!");
+        //if the hour of the day is between 12-16
+    } else if (hour <= 16){//print greeting
+        console.log("Good Afternoon!");
+        //if the hour of the day is between 17-21
+    } else if (hour <= 21){//print greeting
+        console.log("Good Evening!");
+        //if the hour of the day is between 22-24
+    } else {//because the app responds to the time, if the time is beyond hour 21, it should respond good night
+        console.log("Good Night!");
+    }
     
     
     
