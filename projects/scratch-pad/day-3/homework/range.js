@@ -23,6 +23,20 @@
  */
 function range(start, end) {
     // YOUR CODE GOES BELOW HERE //
+    var rangeArray = [];
+    //need an if statement for when start is less than end
+    if(start < end){
+        for (var i = start; i <= end;i++){
+             rangeArray.push(i);
+        }
+    } else if (start > end){
+        for (var i = start; i >= end;i--){
+            rangeArray.push(i)
+        }
+    } else if (start === end){
+            rangeArray.push(start);
+    }
+  return rangeArray;
     
     
     

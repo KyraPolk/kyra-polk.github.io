@@ -190,8 +190,19 @@ if (stringOne.length > stringTwo.length){
  */
 function sortAscending(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
+    //need to use .sort on an array of data so i also need to turn the strings into arrays
+    stringOne.split().sort().join('');
+    stringTwo.split().sort().join('');
 //If string one is higher in alphabetical order than string two,return 1
-if (stringOne[0])
+if (stringOne > stringTwo){
+    return -1;
+} 
+if (stringOne < stringTwo){
+    return 1;
+}
+if (stringOne === stringTwo){
+    return 0;
+}
 //If string two is higher in order than string one, return -1
 //if they are equal return 0
 
@@ -209,7 +220,18 @@ if (stringOne[0])
  */
 function sortDescending(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
-
+stringOne.split().sort().reverse().join('');
+stringTwo.split().sort().reverse().join('');
+//create conditional chain
+if (stringOne > stringTwo){
+    return 1;
+} 
+if (stringOne < stringTwo){
+    return -1;
+}
+if (stringOne === stringTwo){
+    return 0;
+}
 
 
 

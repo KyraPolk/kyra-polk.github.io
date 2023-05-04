@@ -1,7 +1,7 @@
 # kyra-polk.github.io
 
 # How to install new projects
-1)In terminal type => c
+1)In terminal type => code ~/.bashrc
 2)On line 4 of .bashrc file, type => export CHE_PROJECTS_ROOT=/workspace
 3)Exit out of .bashrc file
 4) kill terminal

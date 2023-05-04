@@ -13,10 +13,16 @@
  */
 function createGreaterThanFilter(base) {
     // YOUR CODE BELOW HERE //
-    
-    
-    
-    
+    //create a function that returns a function
+    return function test(value){
+        if (value > base){
+            return true;
+        } else if (value < base){
+            return false;
+        }
+           
+        
+    }
     // YOUR CODE ABOVE HERE //
 }
 
@@ -27,8 +33,15 @@ function createGreaterThanFilter(base) {
  */
 function createLessThanFilter(base) {
     // YOUR CODE BELOW HERE //
-    
-    
+   //create a return statement that is a function that takes in the parameter "value" 
+    return function(value){
+        //create an if statement to test if the value is less than base
+        if (value < base){
+            return true;
+        } else if (value > base){
+            return false;
+        }
+    }
     
     
     // YOUR CODE ABOVE HERE //
@@ -41,7 +54,15 @@ function createLessThanFilter(base) {
  */
 function createStartsWithFilter(startsWith) {
     // YOUR CODE BELOW HERE //
-    
+    //need to create a function that takes the string as a parameter
+    return function (string){
+        //create an if statement
+        if (startsWith.toLowerCase() === string[0].toLowerCase()){
+            return true;
+        } else if (startsWith.toLowerCase() !== string[0].toLowerCase()){
+            return false;
+        }
+    }
     
     
     
@@ -55,7 +76,15 @@ function createStartsWithFilter(startsWith) {
  */
 function createEndsWithFilter(endsWith) {
     // YOUR CODE BELOW HERE //
-    
+    //create a return statement thats a function with the parameter of "string"
+    return function(string){
+        //create an if statement to test the last value of the string to make sure it is equal
+        if (string[string.length - 1].toLowerCase() === endsWith.toLowerCase()){
+            return true;
+        } else if (string[string.length - 1].toLowerCase() !== endsWith.toLowerCase()){
+            return false;
+        }
+    }
     
     
     
@@ -71,7 +100,14 @@ function createEndsWithFilter(endsWith) {
  */
 function modifyStrings(strings, modify) {
     // YOUR CODE BELOW HERE //
+    //modify is a function that will return modified version of strings
     
+        var arg = [];
+        //create a for loop to loop over the array of stringsthe strings parameter
+        for (var i = 0; i < strings.length; i++){
+            arg.push(modify(strings[i]));
+        }
+        return arg;
     
     
     
@@ -89,9 +125,16 @@ function modifyStrings(strings, modify) {
  */
 function allStringsPass(strings, test) {
     // YOUR CODE BELOW HERE //
+    //test is a function designed to test each item in the array
     
-    
-    
+    //need a for loop to loop over the array of strings
+    for (var i = 0; i < strings.length; i++){
+        if (test(strings[i]) !== true){
+            return false;
+        }  
+       
+    }
+    return true;
     
     // YOUR CODE ABOVE HERE //
 }

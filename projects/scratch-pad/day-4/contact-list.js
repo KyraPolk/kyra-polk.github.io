@@ -35,26 +35,67 @@
 
 // YOUR CODE GOES BELOW HERE //
 function makeContact(id, nameFirst, nameLast) {
-
+    var object = {};//declare a new object and add properties
+    object.id = id;
+    object.nameFirst = nameFirst;
+    object.nameLast = nameLast;
+    return object;//return object with new key/values
 } 
 
 
-function makeContactList() {
+function makeContactList(){
     /*
      * You need something here to hold contacts. See length api for a hint:
      */
-    var contacts;
+    var contacts = [];
     
     return {
         // we implemented the length api for you //
         length: function() {
             return contacts.length;
+        },
+        addContact: function(makeContact){
+            return contacts.push(makeContact);
+        },
+        findContact: function(fullName){//fullname is a string "firstname lastname"
+            //create for loop to loop over array of objects
+            for (var i = 0; i < contacts.length; i++){
+                //contacts i accesses every object within the array now i need to access the fullName in  object
+                //create a conditional statement for if fullname = object.fullname
+                if (contacts[i].nameFirst + " " + contacts[i].nameLast === fullName){
+                    return contacts[i];
+                }
+            }
+           
+        },
+        removeContact: function(contact){
+            return contacts.splice(contact, 1);
+        },
+        printAllContactNames: function(){
+            //need to loop over the array of contacts to access each object
+            var output = [];
+            for (var i = 0; i < contacts.length; i++){
+                //now we want to print the full names to the console by looping over the firstname and lastnames of each object
+                 //contacts[i] is each indidual object
+                 output.push(contacts[i].nameFirst + " " + contacts[i].nameLast)
+                 //should get an array of names in output array ==> ex: ["betty sue", "jane doe"]
+                //loop over the output array of names
+                for (let k = 0; k < output; k++){
+                    
+                }
+                 }
+            
+                 return output.join("\n");
         }
+    
+
+
+     //returns an object
+
+
+
     }
 }
-
-
-
 
 // YOUR CODE GOES ABOVE HERE //
 

@@ -12,8 +12,21 @@
 */
 function fizzBuzz() {
     // YOUR CODE GOES BELOW HERE //
-
-
+//first we will want to create a for loop that iterates through numbers from 1 to 100
+for (var i = 1; i < 101; i++){
+    //we need an if statement for when i is equal to a multiple of 3 only
+    if( i % 3 === 0 && i % 5 !== 0){
+        console.log("Fizz");
+        //need a statement for when i is equal to a multiple of 5 only
+    } else if (i % 5 === 0 && i % 3 !== 0){
+        console.log("Buzz");
+        //need a statement for when i is a multiple of BOTH 3 and 5
+    } else if (i % 15 === 0){
+        console.log("FizzBuzz");
+    } else {
+        console.log(i);
+    }
+}
 
     // YOUR CODE GOES ABOVE HERE //
 }
