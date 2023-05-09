@@ -23,7 +23,7 @@
 4)select bootcamp session
 5)select project to test
 
-# How to run git commands 
+# How to run git commands (how to save work)
 1)In terminal type => git add -A
 2) In terminal, type => git commit -m "describe your work"
 3) In terminal type => git push
