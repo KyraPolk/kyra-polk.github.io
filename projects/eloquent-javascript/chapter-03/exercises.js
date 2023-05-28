@@ -2,15 +2,36 @@
 // min /////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function min() {
-
+function min(num1, num2) {
+//it should take two parameters that are numbers and return the parameter with the lowest value
+//i could use Math.min because it takes in arguements and always returns the lowest number
+//return Math.min(num1, num2)
+if (num2 === undefined){
+  return num1
+}
+if (num1 > num2){
+  return num2
+} else {
+  return num1
+}
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 // isEven //////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function isEven() {
+function isEven(num) {
+//what if the number passed in is a negative number?
+if(num < 0){
+  num = Math.abs(num);
+}
+if(num === 0){
+  return true;
+}
+if (num === 1){
+  return false;
+}//in all other cases apply isEven to n - 2
+return isEven(num - 2);
 
 }
 
@@ -18,16 +39,36 @@ function isEven() {
 // countChars //////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function countChars() {
+function countChars(string, char) {
+//create a variable to return the result 
+let result = 0;//set to zero and as any iterations pass +1
+//i need to loop over the string
+for(let i = 0; i < string.length; i++){
+  //now i need to test if string[i] === char
+  if (string[i] === char){
+    result += 1
+  }
+}
 
+
+return result;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 // countBs /////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function countBs() {
-
+function countBs(string) {
+//create a variable set to zero to return result
+count = 0;
+//loop over the string to test each character
+for (let i = 0; i < string.length; i++){
+//now i need to test if string[i] === "B"
+if( string[i] === "B"){
+  count += 1
+}
+}
+return count;
 }
 
 ////////////////////////////////////////////////////////////////////////////////

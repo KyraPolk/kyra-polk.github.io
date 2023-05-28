@@ -169,15 +169,16 @@ function nonFriends(name, array) {
 //first i need to loop over the array of objects to access each object individually
 //declare an empty array
 var enemies = [];
-var allObjectNames = [];
-for (let i = 0; i < array.length; i++){
-    allObjectNames.push(array[i].names);//("Jimmy","Bob","Liza", "Sara")
-    //loop over the allObjectNames
-    for (let j = 0; j < allObjectNames.length; j++){
-        //access friends arrays
-    }
-}
 
+for (var i = 0; i < array.length; i++){
+    //create if statement if the name in the array does not equal name and the array does not include name
+    if(array[i].name !== name && !array[i].friends.includes(name)){
+    //push the array into the nonfriends array
+    enemies.push(array[i].name);
+}
+//return enemies
+
+}
 return enemies;
 }
 //////////////////////////////////////////////////////////////////////
