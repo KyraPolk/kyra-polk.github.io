@@ -2,33 +2,28 @@
 // range ///////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function range(start, end, step, rangeArr=[]) {//should use recursion
-  //base case
-  //create condition if step should be undefined
-  if (start === end){//immediately stop and return an empty array if start and end are the same
-
-    return rangeArr
+function range(start, end, step, output=[]) {
+  if (step < 1){
+    return output
   }
-  if (step === undefined && start < end){//if step is not declared step = 1
+  if (start === end){//if start and end are the same number return an empty array
+     return output// []
+  }
+  if (step === undefined){//if step is not defined, step = 1
     step = 1;
-  } else if (step === undefined && end < start){
-    step = -1
   }
-  var larger = Math.max(start, end);//to return the larger of the two arguements
-  var smaller = Math.min(start, end);//to return the lower of the two arguements
-  if (step < 0) {
-  	for (var i = larger; i >= smaller; i+= step){//if the incrementing is negative loop and push each value to range array
-        rangeArr.push(i);
-      }
-  } else if (step > 0) {
-    for (var i = smaller; i <= larger; i+= step){
-      rangeArr.push(i);
-      
+    if (start < end){
+    for (let i = start; i <= end; i += step){
+      output.push(i);
+    }
+  } 
+  if (start > end){
+    for (let i = start; i >= end; i -= step){
+      output.push(i)
+    }
   }
   
-}
-return rangeArr
-  
+  return output;
 }
 
 
