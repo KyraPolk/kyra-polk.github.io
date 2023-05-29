@@ -2,9 +2,8 @@
 // range ///////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function range(start, end, step) {//should use recursion
+function range(start, end, step, rangeArr=[]) {//should use recursion
   //base case
-  var rangeArr = [];
   //create condition if step should be undefined
   if (start === end){//immediately stop and return an empty array if start and end are the same
 
@@ -29,6 +28,7 @@ function range(start, end, step) {//should use recursion
   
 }
 return rangeArr
+  
 }
 
 
@@ -106,7 +106,10 @@ return listToArray(list.rest, output)
 // prepend /////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function prepend(list) {
+function prepend(val, list) {
+  //should insert value into list at first postion
+  var newList = {value: val, rest: list};
+  return newList;
 }
 
 

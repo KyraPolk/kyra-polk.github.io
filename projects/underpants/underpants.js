@@ -249,10 +249,18 @@ _.unique = function(array){
 *   use _.each in your implementation
 */
 _.filter = function(array, func){
-    
-    let output = array.filter(func)
-        //filters array and only returns elements that are true in new array
-    return output;
+     //filters array and only returns elements that are true in new array
+        //loop over array
+        var output = []
+        if (Array.isArray(array)){
+        for(var i = 0; i < array.length;i++){
+            func(array[i], i, array)
+            if (func(array[i], i, array) === true){
+                output.push(array[i])
+                
+            }
+        }}
+    return output
 }
 
 
