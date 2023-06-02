@@ -12,7 +12,7 @@
  * while(index </> variable set to starting point){increment or decrement}.
  * 
  * 2.For loops are used to iterate over strings and arrays syntax: 
- * keyword for(i = start: until i is this: increment or decrement)
+ * keyword for(i = start when i is this; keep iterating until this condition is false, increment or decrement)
  * 
  * 3.For-in loops are used to loop over objects. syntax: keyword for(var key in obj)
  *  

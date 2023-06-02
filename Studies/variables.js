@@ -18,8 +18,20 @@
 //In this phase the variable is declared using var and named using camelcase. At this phase the variable is undefined
 var myProject;//declared using var
 console.log(myProject)//will print undefined although its been declared
-let happy;//declared using let... let is also block scoped but allows reaasignment
+let password = "passThisWord";//declared using let... let is also block scoped but allows reaasignment
+let input = "passThisWord"
+if (password === input){
+    let message = "Correct!";
+} 
+console.log(message)//does not log "Correct!" cant access a variable outside of its scope when declared with let
 //const hungry;//declared using const...does not allow reassignment
+function birthday(today){
+const previousAge = 25;
+if (today === "August 4"){
+    let newAge = 26
+}
+}
+console.log(previousAge)//an error occurs because outside of the function, previousAge has not been defined
 //Initialization//
 //In this phase we are assigning our variable to data
 var myProject = "Bootcamp"
@@ -30,3 +42,16 @@ console.log(myProject)//will print "Bootcamp"
 var myProject = "Bootcamp"//where it is declared
 var myProject = "to Precourse"
 console.log(myProject)//will print "to Precourse" to the console because it was reassigned
+
+//Hoisting//
+//Hoisting is the default behavior of moving declarations to the top of the processed code. Functions and variables
+//declared with the keyword "var" are hoisted for the computer to evaluate first. 
+//because of this, you can access a function at any point including before its actually been declared
+console.log(evenOrOdd(19));//calling the function and it will log the result the function declared below
+function evenOrOdd(num){
+    if (num % 2 === 0){
+        return "Even"
+    } else {
+        return "Odd"
+    }
+}

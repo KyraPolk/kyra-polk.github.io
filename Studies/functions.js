@@ -24,7 +24,9 @@
  * within the parenthesis. We can even plug in the kind of data we want to return. We use return statements to specify output.
  *
  * 6. Scope: Functions can see and modify variables in parent or global scopes. The inverse is not true because we cannot access data
- * before its declared. A scope allows you to limit access to certain variables to specific areas.
+ * before its declared. A scope allows you to limit access to certain variables to specific areas based on the context its used. This
+ *  context determines where you can and can't access certain variables and functions. Scopes usually can be identified by the brackets that enclose the data 
+ * being declared.
  * 
  * 7. Closures: Functions form closures around the data they contain. If the object returned from the function and is held in memory somewhere (referenced), that
  * closure stays alive, and data can continue to exist in these closures. A closure is a function enclosed with
@@ -66,17 +68,26 @@ function again(){//param optional
 
 //6. Scopes
 //limits access to certain variables to certain areas
-//for instance functions and if statements are block scoped
+//for instance if statements are block scoped
 //These two keywords provide Block Scope in JavaScript: let and const
 // code here can NOT use testVar
 
 function exampleFunc() {
-    let testVar = "block scoped";
+    let testVar = "block scoped";//this variable is function/local scoped
     // code here CAN use testVar
   }
-  
+  console.log(testVar)//it does not log anything to the console. In fact you'll get an error that it is not defined
   // code here can NOT use testVar
 
+  //another example of scope showing that functions can access variables from a parent scope
+  function add1(){
+    let num = 1
+     function increment(){
+      return console.log(num++)
+    }
+    increment()
+  }
+  add1()//logs 1 to the console and everytime increment is invoked, it remembers the old value of num and adds 1
   //7. Closures
   //a function enclosed with refernces to the variables in its outer scope.
   function addThem(x) {
