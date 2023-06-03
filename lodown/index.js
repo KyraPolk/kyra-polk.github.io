@@ -10,6 +10,7 @@ const { unique, pluck } = require("../projects/underpants/underpants");
  * 
  * @param {value} : the param the function takes in
  * @param {function} action: just returns that same value
+ * @param {return} : it returns the input parameter with no changes
  */
 _.identity = function(val){
     return val;
@@ -21,8 +22,9 @@ module.exports._identity = identity;
  * typeof operator returns a string indication the type of the operand's value. We use it also to distinguish between
  * arrays and objects, null, and dates.
  * 
- * @param {value} any: This function takes in any sort of data
+ * @param {value} any: This function takes in any sort of data except a function
  * @param {function} action: Determines the datatype of the input value
+ * @param {return} : returns a string of the datatype that the input value is
  * Types are one of:
 *          - "string"
 *          - "array"
@@ -51,8 +53,10 @@ module.exports._.typeof = typeof
  * 3. First: This function takes two arguements an array and a number to return the first instance of the number
  * in the array. It returns the first element of an array if the second parameter is undefined. 
  * 
- * @param {array, num} collection: the function takes in the two parameters of an array of numbers and a number to find the first instance of in the array.
+ * @param {array} collection: the function takes in the parameter of an array of numbers 
+ * @param {num} : a number to find the first instance of in the array.
  * @param {function} action: It finds the first instance of num in the array of num 
+ * @param {return} : it returns the out put array of the first instance of num
  */
 
 _.first = function(array, num){
@@ -80,8 +84,10 @@ module.exports._.first = first
  * 4. Last: The function _.last is a function that loops over an array and returns the last occuring instance in the array. 
  * If num is undefined or if num is not a number it returns the final element. 
  * 
- * @param {array, num} collection: The function takes an array and a number to test in the array
- * @param {function} action:The function loops over the array and returns the last iteration of num or the last element in the array
+ * @param {array} collection: The function takes an array of numbers
+ * @param {num} : a number to test in the array
+ * @param {function} action:The function loops over the array and tests if the arguements are valid and then finds the last instance 
+ * @param {return} :returns the last iteration of num or the last element in the array
  */
 
 _.last = function(array, num){
@@ -102,9 +108,11 @@ module.exports._.last = last
  * 5. indexOf: It iterates over the array to determine if a value is in the array, and if it is, it returns the first instance of the values.
  * If it is not within the array, it returns -1. It essentially checks if the array includes the passed in element. and returns its index.
  * 
- * @param {array, value} collection: The function takes in two parameters: a collection as an array and a value 
+ * @param {array} collection:a collection as an array 
+ * @param {value} :a value that we are looking for in the array
  * @param {function} action: this function returns of index of the value passed in within the array. if the value does
  * not exist within the array, it returns -1
+ * @Param {return} : this function returns the index of the value we want to find in the input array
  */
 
 _.indexOf = function(array, value){
@@ -127,10 +135,12 @@ module.exports._.indexOf = indexOf
  * based on wether or not a string, or in this case only an array, conatins the value we are hoping for.
  * if it does not contain the value, then the function returns "value is undefined".
  * 
- * @param {array, value} collection: The parameters are an array of elements and the value.
+ * @param {array} collection: The parameter is an array of elements
+ * @param {value} : the value is the element we are checking to see if in the input array
  * @param {function} action: It loops over an array at each value and exits and returns true if the array contains the value,
  * otherwise if it loops over the array's entirety and the value does not match any iteration, it returns false. If
  * the value of the function is undefined.
+ * @param {return} : returns a boolean value of wether the array contains the value
  */
 
 _.contains = function(array, value){
@@ -147,9 +157,11 @@ module.exports._.contains = contains
  * 7. each: Designed to loop over a collection, Array or Object, and applies the 
  * action Function to each value in the collection. Each does not return anything.
  * 
- * @param {Array or Object} collection: The collection over which to iterate over. and it takes in a function to apply to each iteration
+ * @param {Array or Object} collection: The collection over which to iterate over 
+ * @param {function} : and it takes in a function to apply to each iteration
  * @param {Function} action: The Function to be applied to each value in the 
  * collection
+ * @param {return} :does not return anything
  */
 function each(collection, action) {
     if(Array.isArray(collection)) {
@@ -172,6 +184,7 @@ module.exports.each = each;
  * @param {Array or Object} collection: The collection this function operates on is an array
  * @param {function} action: This function loops over the input array and tests to see if each element in the array
  * is the only one in the original array and if it is, then we push it into its own brand new array of unique items.
+ * @param {return} : returns an output array without duplicates
  */
 
 _.unique = function(array){
@@ -192,8 +205,10 @@ module.exports._.unique = unique
  * it passes it into a function that will return a boolean values of true or false. if true, the element will be pushed
  * into a new array. 
  * 
- * @param {Array or Object} collection: The Parameter is an array and a function to text each iteration with
- * @param {function} action: This function returns a new array of elements that returned true when passed into the callback function.
+ * @param {Array or Object} collection: takes in an array 
+ * @param {func} : a function to test each iteration with
+ * @param {function} action: This function will loop over each element in the array and pass it into the arguement function
+ * @param {return} : returns a new array of elements that returned true when passed into the callback function.
  */
 
 _.filter = function(array, func){
@@ -219,8 +234,10 @@ module.exports._.filter = filter
  * false when passed in to the callback function. Loops over each iteration and if something is false the element is pushed
  * into a new array.
  * 
- * @param {Array or Object} collection: The parameters are an array and a function to pass each iteration to.
- * @param {function} action: The function will return an array of values that did not pass the callback function.
+ * @param {Array or Object} collection: The parameter is an array 
+ * @param {func} :a function to pass each iteration into.
+ * @param {function} action: The function will apply the input function to each element of the input array and create a new array of the elements that did not pass the function
+ * @param {return} : return an array of values that did not pass the callback function.
  */
 
 _.reject = function(array, func){
@@ -241,10 +258,12 @@ module.exports._.reject = reject
  * that when passed into the callback function, they returned true. The second, a collection(array) 
  * of all the elements of the original array that when passed into the input callback function, they return false.
  * 
- * @param {Array or Object} collection: The parameter is and array and a function that we passed each iteration into.
+ * @param {Array or Object} collection: The parameter is and array 
+ * @param {func} : a function that we passed each iteration into.
  * @param {function} action: The function takes in an array, loops over it and passed the item into the input function
  * and if the callback resolves to true, we push the element into the first sub array, if false we push that element into the second
  * subarray.
+ * @param {return}: returns a new array of elements that resolved to true when passed into the input function.
  */
 
 _.partition = function(array, func) {
@@ -269,8 +288,10 @@ _.partition = function(array, func) {
      * consist of the results of calling the input function on each element in the original array. Should return an array with the same length as the input array.
      * each element in the new array will be a modified version of the original array[i].
      * 
-     * @param {Array or Object} collection: The parameter is a an input array and input function.
-     * @param {function} action: This function returns a modified version of the input array as a new array.
+     * @param {Array or Object} collection: The parameter is a an input array OR an input object 
+     * @param{func} :input function we enact on each element.
+     * @param {function} action: this function takes an input array or object and loops over it passing each iteration into a callback function
+     * @param {return} :This function returns a modified version of the input array as a new array.
      */
 
     _.map = function(collection,func){
@@ -295,10 +316,11 @@ _.partition = function(array, func) {
      *  list one by one and starts extracting the given property's detail in ascending order
      * starting from the first element.
      * 
-     * @param {Array or Object} collection: The parameters are an array(as an array of objects) and
-     *  the property we wish to access and change in each iteration
+     * @param {Array or Object} collection: The parameters are an array(as an array of objects) 
+     *  @param {prop} :the property we wish to access and change in each iteration
      * @param {function} action: We are using this function to loop over the array of objects and access
      *  a property in an object.
+     * @param {return} :returns a new array filled with each objects' property in the array of objects
      */
 
     _.pluck = function(array, prop){
@@ -315,10 +337,11 @@ _.partition = function(array, func) {
      *  by the provided input function. It returns a Boolean value. Only if every element passes the test,
      *  will the function resolve to true.
      * 
-     * @param {Array or Object} collection: The parameters are a collection, really an array, and
-     *  a function that we pass each iteration into.
+     * @param {Array or Object} collection: The parameters are a collection, really an array
+     *  @param {func} :a function that we pass each iteration into.
      * @param {function} action: It loops over the input array and pass in every element
-     *  into a function that resolves a boolean value. If all the elements passed in resolve
+     *  into a function that resolves a boolean value. 
+     * @param {return} :If all the elements passed in resolve
      *  to true, the function will return true. else it will return false.
      */
 
@@ -350,8 +373,10 @@ _.partition = function(array, func) {
          * This a boolean based callback function that each element is passed in as an arguement. If at least one of the i
          * terations pass the funtion will return true.
          * 
-         * @param {Array or Object} collection: The parameters are an array and a function.
-         * @param {function} action: This function loops over the input and if any of the iterations that are passed in to the function
+         * @param {Array or Object} collection: The parameter is an array and 
+         * @param {func} :a function that tests each element in the input array
+         * @param {function} action: This function loops over the input and applies the fuction to each iteration
+         * @param {return} :if any of the iterations that are passed in to the function
          * return true, then the function return true. 
          */
 
@@ -383,10 +408,12 @@ _.partition = function(array, func) {
              * is a single value. When it iterates at each step, it adds the current array value to the result
              *  from the previous iteration. If no seed value is given the function will begin from array[0].
              * 
-             * @param {Array or Object} collection: This kind of function loops over an arrays only taking in the parameters
-             * of the accumulator, current, index, array.
+             * @param {Array or Object} collection: the array the function is looping over.
+             * @param {seed}:the type of data that we need to return and the initial value of the accumulator/result
+             * @param {func}:the function that we pass the current iteration into
              * @param {function} action: This function passes a function to each current iteration and accumulates the the results into the 
              * data type it returns, we can determine the data it returns by assigning the seed value to an array[], obj{}, or a  string"".
+             * @param {return}: returns the total accumulatuon of each iteration as the data initialized by the seed value
              */
 
             _.reduce = function(array, func, seed){
@@ -414,8 +441,9 @@ _.partition = function(array, func) {
              * Returns the changed target object.
              * 
              * @param {Array or Object} collection:The parameters are first the target object we are adding everything to and the
-             * second parameter(s) are the objects with the properties we essentially aim to "push" those properties into
+             * @param {object(s)} :second parameter(s) are the objects with the properties we essentially aim to "push" those properties into
              * @param {function} action: The function copies all various properties from one or more source objects to a target object.
+             * @param {return}: returns the target object containing everything from the other objects conbined 
              */
 
             _.extend = function(object1, ...objects){
